@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "outDir": "./build",
+      "allowJs": true,
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true,
+      "declaration": true,
+      "esModuleInterop": true,
+      "target": "ES2019"
+    },
+    "include": ["test/**/test.ts"],
+    "exclude": ["node_modules"]
+}
