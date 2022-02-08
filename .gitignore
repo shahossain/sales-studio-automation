@@ -1,4 +1,4 @@
 node_modules
 package-lock.json
 wdio-chromedriver.log
-common
+common/utils
