@@ -10,7 +10,7 @@ exports.config = {
     logLevel: 'warn',
     coloredLogs: true,
 
-    waitforTimeout: 10000,
+    waitforTimeout: 20000,
     connectionRetryTimeout: 900000,
     connectionRetryCount: 1,
 
