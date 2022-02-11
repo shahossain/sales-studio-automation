@@ -1,0 +1,30 @@
+import Page from "./page";
+declare class StudioPage extends Page {
+    workspaceVersion: string;
+    workspaceDOSVersion: string;
+    logo: string;
+    iconUrl: string;
+    platformName: string;
+    homeName: string;
+    storeName: string;
+    get logoTabBtn(): any;
+    get searchLogoUrl(): any;
+    get addLogoUrlBtn(): any;
+    get dosTabBtn(): any;
+    get selectWSVersion(): any;
+    get applyLogo(): any;
+    get applyChangesBtn(): any;
+    get dosJSON(): any;
+    get platformsTabBtn(): any;
+    get newPlatformBtn(): any;
+    get newPlatformName(): any;
+    get newHomeName(): any;
+    get newStoreName(): any;
+    get savePlatformBtn(): any;
+    get applyPlatformLogo(): any;
+    get customThemeFlag(): any;
+    get launchTabBtn(): any;
+    get launchPlatform(): any;
+}
+declare const _default: StudioPage;
+export default _default;
