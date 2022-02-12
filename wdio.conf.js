@@ -3,7 +3,7 @@ exports.config = {
     port: 9515,
     path: '/',
     specs: [
-        'build/test.js'
+        'build/specs/test.js'
     ],
 
     reporters: ['spec'],
