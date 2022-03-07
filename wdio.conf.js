@@ -1,3 +1,5 @@
+const { execFileSync } = require('child_process');
+const { join } = require('path');
 
 exports.config = {
     port: 9515,
@@ -30,5 +32,9 @@ exports.config = {
     openfin: {
         manifest: 'fins://openfin.github.io/openfin-workspaces-local-helper/app/sales-workspace-studio-next.json',
         debuggerPort: 9090
-    }
+    },
+
+    onPrepare: function () {
+        execFileSync(join(__dirname, './killall.bat'));
+     }
 }

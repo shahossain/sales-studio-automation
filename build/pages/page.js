@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class Page {
     constructor() {
     }
-    async open(path) {
+    async open() {
     }
 }
 exports.default = Page;

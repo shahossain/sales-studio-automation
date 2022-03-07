@@ -25,6 +25,10 @@ declare class StudioPage extends Page {
     get customThemeFlag(): any;
     get launchTabBtn(): any;
     get launchPlatform(): any;
+    createNewPlatform: () => Promise<void>;
+    selectAndApplyLogo: () => Promise<void>;
+    selectAndApplyWorkspaceVersion: () => Promise<void>;
+    launchCustomPlatform: () => Promise<void>;
 }
 declare const _default: StudioPage;
 export default _default;

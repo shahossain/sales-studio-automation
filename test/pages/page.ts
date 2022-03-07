@@ -1,8 +1,8 @@
 // Page.js
 export default class Page {
-    constructor() {
+    constructor () {
     }
 
-    async open (path) {
+    async open () {
     }
 }

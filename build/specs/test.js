@@ -25,37 +25,50 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const rm = __importStar(require("wdio-openfin-service"));
 const assert_1 = __importDefault(require("assert"));
 const studio_page_1 = __importDefault(require("../pages/studio.page"));
-describe('Sales Studio Smoke Test', function () {
+const home_page_1 = __importDefault(require("../pages/home.page"));
+const browser_page_1 = __importDefault(require("../pages/browser.page"));
+describe('Sales Studio Smoke Test: Studio', function () {
     const salesStudioTitle = 'OpenFin Sales Workspace Studio';
     it('Launch Sales Studio and validate Title', async () => {
         await rm.switchWindowByTitle(salesStudioTitle);
-        const title = await browser.getTitle();
-        assert_1.default.strictEqual(title, salesStudioTitle);
+        const studioTitle = await browser.getTitle();
+        assert_1.default.strictEqual(studioTitle, salesStudioTitle);
     });
     it('Select and apply Workspace Logo', async () => {
-        await studio_page_1.default.logoTabBtn.click();
-        await studio_page_1.default.searchLogoUrl.setValue(studio_page_1.default.logo);
-        await studio_page_1.default.addLogoUrlBtn.click();
+        await studio_page_1.default.selectAndApplyLogo();
     });
     it('Select and apply Workspace Version', async () => {
-        await studio_page_1.default.dosTabBtn.click();
-        await studio_page_1.default.selectWSVersion.selectByVisibleText(studio_page_1.default.workspaceVersion);
-        await studio_page_1.default.applyLogo.click();
-        await studio_page_1.default.applyChangesBtn.click();
-        await expect(studio_page_1.default.dosJSON).toHaveTextContaining(studio_page_1.default.workspaceDOSVersion);
-        await expect(studio_page_1.default.dosJSON).toHaveTextContaining(studio_page_1.default.iconUrl);
+        await studio_page_1.default.selectAndApplyWorkspaceVersion();
     });
-    it('Create Workspace Platform and apply Custom Theme', async () => {
-        await studio_page_1.default.platformsTabBtn.click();
-        await studio_page_1.default.newPlatformBtn.click();
-        await studio_page_1.default.newPlatformName.setValue(studio_page_1.default.platformName);
-        await studio_page_1.default.newHomeName.setValue(studio_page_1.default.homeName);
-        await studio_page_1.default.newStoreName.setValue(studio_page_1.default.storeName);
-        await studio_page_1.default.applyPlatformLogo.click();
-        await studio_page_1.default.savePlatformBtn.click();
+    ;
+    it('Create Workspace Platform with default Theme', async () => {
+        await studio_page_1.default.createNewPlatform();
     });
     it('Launch the Custom Platform', async () => {
-        await studio_page_1.default.launchTabBtn.click();
-        await studio_page_1.default.launchPlatform.click();
+        await studio_page_1.default.launchCustomPlatform();
+        await browser.pause(7000);
+    });
+});
+describe('Sales Studio Smoke Test: Home', function () {
+    const customHomeTitle = 'OpenFin Home';
+    it('Validate Home Title', async () => {
+        await rm.switchWindowByTitle(customHomeTitle);
+        const homeTitle = await browser.getTitle();
+        assert_1.default.strictEqual(homeTitle, customHomeTitle);
+    });
+    it('Search for App and Launch', async () => {
+        await home_page_1.default.searchHomeAndLaunchFirstResult();
+    });
+});
+describe('Sales Studio Smoke Test: Browser', function () {
+    const customBrowserTitle = 'Browser Starter';
+    it('Validate Browser Title', async () => {
+        await rm.switchWindowByTitle(customBrowserTitle);
+        const browserTitle = await browser.getTitle();
+        assert_1.default.strictEqual(browserTitle, customBrowserTitle);
+    });
+    it('Save Page to Home', async () => {
+        await rm.switchWindowByTitle(browser_page_1.default.savePageModalTitle);
+        await browser_page_1.default.savePage();
     });
 });
